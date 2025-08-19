@@ -10,3 +10,15 @@ Codes to assign geological, ecological and meteorological attributes to landslid
 1. uses the subscripts 'read_landslide-points.py', 'read_shapefiles' and 'add_attributes' to read the processed landslide points and control points with their attributes and then assign some additional attributes from shapefiles.
 
 These two separate code procedures can be merged in some other data systems, but have been run separately due to the use of two different data systems with different benefits. The main code has been run on a supercomputer and is designed to tackle large input files and calculations that require a lot of memory. The additional code for handling shapefiles has been run on a local computer where some Python packages relevant for shapefiles worked better.
+
+More details on calculations:
+
+1. Profile and planform curvature are calculated using the RichDEM library and the method of Zevenbergen, L. W., & Thorne, C. R. (1987). Quantitative analysis of land surface topography. Earth surface processes and landforms, 12(1), 47-56.
+
+2. Flow acccumulation is calculated using the RichDEM library and the D8 method of O’Callaghan, J.F., Mark, D.M., 1984. The Extraction of Drainage Networks from Digital Elevation Data. Computer vision, graphics, and image processing 28, 323–344.
+
+3. Stream Power Index (SPI) is calculated based on slope and flow accumulation using ln(flow_accumulation)*tan(slope), where flow accumulation is per unit area.
+
+4. Topographic Position Index (TPI) is precalculated in ArcGIS Pro.
+
+5. Landform is calculated from TPI300_stdi and TPI2000_stdi. 
