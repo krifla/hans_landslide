@@ -19,6 +19,6 @@ More details on calculations:
 
 3. Stream Power Index (SPI) is calculated based on slope and flow accumulation using ln(flow_accumulation)*tan(slope), where flow accumulation is per unit area.
 
-4. Topographic Position Index (TPI) is precalculated in ArcGIS Pro by comparing the DTM elevation of each cell to the mean elevation of the surrounding annulus-shaped neighborhood. TPI is calculated for small scales (TPI300 considering cells in 150 and 300 m radius from each cell) and large scales (TPI2000 considering cells in 1850 and 2000 m radius from each cell).
+4. Landforms were classified using the standardised Topographic Position Index (TPI) for small scales (scale factor 300) and large scales (scale factor 2000) using the procedure suggested by Weiss, A. (2001, July). Topographic position and landforms analysis. In Poster presentation, ESRI user conference, San Diego, CA (Vol. 200).
 
-5. Landforms were classified using the standardised TPI300 and TPI2000 as input in landslides_main.ipynb based on the procedure suggested by Weiss, A. (2001, July). Topographic position and landforms analysis. In Poster presentation, ESRI user conference, San Diego, CA (Vol. 200).
+5. Topographic Position Index (TPI) is precalculated in ArcGIS Pro for each of the two scale factors as int((DTM - focalmean(DTM, annulus, inner_radius, outer_radius)) + 0.5). Here, inner_radius and outer_radius are the number of cells necessary for the given DTM resolution to get the inner and outer radius of a donut with outer radius equal to the scale factor and inner radius equal to the scale factor minus 150. The standardised TPI is then calculated as int((((TPI-TPI_mean)/TPI_stdv)*100) + 0.5), where TPI_mean and TPI_stdv are the mean and standard deviation of the TPI.
