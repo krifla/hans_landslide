@@ -9,3 +9,5 @@ Part 1: landslides_main.ipynb
 
 Part II: landslides_attributes-from-shapefiles.py
 - Assigns remaining attributes from shapefiles to landslide points and control points
+
+In addition, read_precip.py is used to read precipitation data from nc files and calculate maximum 3 h precipitation during Hans for each grid cell before converting to a tif file and used in Part 1.
