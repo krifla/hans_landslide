@@ -8,7 +8,7 @@ Created on Thu Feb 13 15:15:03 2025
 
 # NB! UTM32!
 
-fn = 'data/landslide_points/lspoints_25_03.shp'
+fn = '../data/landslide_points/lspoints_25_03.shp'
 gdf = gpd.read_file(fn)
 
 # convert to UTM33
@@ -23,5 +23,7 @@ landslide['x'] = gdf['geometry'].x
 landslide['y'] = gdf['geometry'].y
 
 #%%
+
+landslide_points = pd.read_csv('landslide_attributes.csv')
 
 control_points = pd.read_csv('control_attributes.csv')
